@@ -10,12 +10,14 @@ var validator = require('express-validator');
 
 var index = require('./routes/index');
 
-var UserController = require('./lib/user/UserController');
+var UserController = require('./lib/models/user/UserController');
+var TimezoneController = require('./lib/models/timezone/TimezoneController');
 var AuthController = require('./lib/auth/AuthController');
+
 
 var app = express();
 
-mongoose.connect('mongodb://10.0.0.122:27017/qlik', { useMongoClient: true });
+mongoose.connect('mongodb://127.0.0.1:27017/qlik', { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
 // view engine setup
@@ -43,6 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', UserController);
 app.use('/auth', AuthController);
+app.use('/timezones', TimezoneController);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
