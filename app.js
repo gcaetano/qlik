@@ -17,7 +17,6 @@ var GroupController = require('./lib/models/group/GroupController');
 var TimezoneController = require('./lib/models/timezone/TimezoneController');
 var AuthController = require('./lib/auth/AuthController');
 
-
 var app = express();
 
 mongoose.connect(configs.mongo.qlik.host, { useMongoClient: true });
@@ -65,7 +64,7 @@ app.use(function (err, req, res, next) {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    res.status(err.status || 500).send({ sucess: false, status: err.status, message: err.message });
+    res.status(err.status || 500).send({ success: false, status: err.status, message: err.message });
     res.end();
 });
 

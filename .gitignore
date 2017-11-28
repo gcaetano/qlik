@@ -57,3 +57,19 @@ typings/
 # dotenv environment variables file
 .env
 
+*.DS_Store
+
+#sencha
+public/.sencha
+public/bootstrap.css
+public/bootstrap.js
+public/bootstrap.json
+public/bootstrap.jsonp
+public/build/
+public/classic.json
+public/classic.jsonp
+public/ext/
+public/modern.json
+public/modern.jsonp
+public/resources/sass/.sass-cache/
+public/resources/.arch-internal-preview.css
