@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var configs = require('./lib/config/settings');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -11,13 +12,15 @@ var validator = require('express-validator');
 var index = require('./routes/index');
 
 var UserController = require('./lib/models/user/UserController');
+var ProfileController = require('./lib/models/profile/ProfileController');
+var GroupController = require('./lib/models/group/GroupController');
 var TimezoneController = require('./lib/models/timezone/TimezoneController');
 var AuthController = require('./lib/auth/AuthController');
 
 
 var app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/qlik', { useMongoClient: true });
+mongoose.connect(configs.mongo.qlik.host, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
 // view engine setup
@@ -46,6 +49,8 @@ app.use('/', index);
 app.use('/users', UserController);
 app.use('/auth', AuthController);
 app.use('/timezones', TimezoneController);
+app.use('/profiles', ProfileController);
+app.use('/groups', GroupController);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
