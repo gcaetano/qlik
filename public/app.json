@@ -52,8 +52,8 @@
      * The name of the theme for this application.
      */
     
-    "theme": "theme-triton",
-    
+    // "theme": "theme-triton",
+    "theme": "theme-classic",
     
     /**
      * The list of required packages (with optional versions; default is "latest").
@@ -65,7 +65,8 @@
      *      ]
      */
     "requires": [
-        "font-awesome"
+        "font-awesome",
+        "ux"
     ],
 
     /**
@@ -227,7 +228,7 @@
      */
     "js": [
         {
-            "path": "${framework.dir}/build/ext-all-rtl-debug.js"
+            "path": "${framework.dir}/build/ext-all-debug.js"
         },
         {
             "path": "app.js",

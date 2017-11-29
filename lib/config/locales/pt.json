@@ -1,5 +1,6 @@
 {
     "app": {
+        "title": "Map",
         "backoffice": "Backoffice",
         "profile": "Perfil",
         "profiles": "Perfis",

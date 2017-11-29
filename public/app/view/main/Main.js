@@ -6,99 +6,96 @@
  * TODO - Replace this content of this view to suite the needs of your application.
  */
 Ext.define('QT.view.main.Main', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.panel.Panel',
     xtype: 'app-main',
 
     requires: [
         'Ext.plugin.Viewport',
-        'Ext.window.MessageBox',
-
         'QT.view.main.MainController',
         'QT.view.main.MainModel',
-        'QT.view.main.List'
+        'QT.view.fleet.Layout',
+        'QT.view.backoffice.Layout'
     ],
 
     controller: 'main',
     viewModel: 'main',
-
-    ui: 'navigation',
-
-    tabBarHeaderPosition: 1,
-    titleRotation: 0,
-    tabRotation: 0,
-
-    header: {
-        layout: {
-            align: 'stretchmax'
-        },
-        title: {
-            bind: {
-                text: '{name}'
-            },
-            flex: 0
-        },
-        iconCls: 'fa-th-list'
-    },
-
-    tabBar: {
-        flex: 1,
-        layout: {
-            align: 'stretch',
-            overflowHandler: 'none'
-        }
-    },
-
-    responsiveConfig: {
-        tall: {
-            headerPosition: 'top'
-        },
-        wide: {
-            headerPosition: 'left'
-        }
-    },
-
+    plugins: 'viewport',
+    layout: 'card',
     defaults: {
-        bodyPadding: 20,
-        tabConfig: {
-            plugins: 'responsive',
-            responsiveConfig: {
-                wide: {
-                    iconAlign: 'left',
-                    textAlign: 'left'
-                },
-                tall: {
-                    iconAlign: 'top',
-                    textAlign: 'center',
-                    width: 120
-                }
-            }
-        }
+        border: false
     },
+    border: false,
 
-    items: [{
-        title: 'Home',
-        iconCls: 'fa-home',
-        // The following grid shares a store with the classic version's grid as well!
-        items: [{
-            xtype: 'mainlist'
-        }]
-    }, {
-        title: 'Users',
-        iconCls: 'fa-user',
-        bind: {
-            html: '{loremIpsum}'
+    items: [
+        {
+            xtype: 'fleet-layout'
+        },         
+        {
+            xtype: 'backoffice-layout'
         }
-    }, {
-        title: 'Groups',
-        iconCls: 'fa-users',
-        bind: {
-            html: '{loremIpsum}'
+    ],
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'label',
+                    text: 'QlikT'
+                },
+                '|',
+                {
+                    xtype: 'button',
+                    itemId: 'fleet',
+                    text: $.t('app.title'),
+                    reference: 'fleet',
+                    glyph: 'xf278@FontAwesome',
+                    listeners: {
+                        click: 'onMapClick'
+                    }
+                },
+                // {
+                //     xtype: 'button',
+                //     itemId: 'reports',
+                //     text: 'Reports',
+                //     reference: 'reports',
+                //     iconCls: 'icon-black',
+                //     glyph: 'xf0f6@FontAwesome',
+                //     listeners: {
+                //         click: 'onReportsClick'
+                //     }
+                // },
+                {
+                    xtype: 'button',
+                    itemId: 'backOffice',
+                    text: 'Backoffice',
+                    reference: 'backOffice',
+                    glyph: 'xf085@FontAwesome',
+                    listeners: {
+                        click: 'onBackOfficeClick'
+                    }
+                },
+                '->',
+                {
+                    xtype: 'button',
+                    itemId: 'user',
+                    text: 'Giuliano',
+                    reference: 'user',
+                    glyph: 'xf007@FontAwesome',
+                    listeners: {
+                        click: 'onUserClick'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    itemId: 'logout',
+                    reference: 'logout',
+                    glyph: 'xf08b@FontAwesome',
+                    listeners: {
+                        click: 'onLogout'
+                    }
+                }
+            ]
         }
-    }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }]
+    ]
 });
