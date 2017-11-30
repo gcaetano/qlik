@@ -1,42 +1,41 @@
 Ext.define('QT.util.TreeGroup', {
     statics : {         
         load : function(tree){
-            var store = Ext.create('QT.store.Groups');
+            var store = Ext.create('QT.store.TreeGroups');
             if (store !== undefined) {
-                store.load(function (records, op, success) { //#3
+                store.load(function (records, op, success) { //#3                    
                     Ext.each(records, function (item) { //#4
+                        debugger;
                         var node = { 
                             user: false,
-                            text: item.get('text'),
-                            alias: item.get('text'),
-                            leaf: item.get('users').length === 0,
+                            text: item.get('alias'),
+                            alias: item.get('alias'),
+                            // leaf: item.get('users').length === 0,
                             glyph: QT.util.Glyphs.getGlyph('group'),
-                            _id: item.get('_id'),
                             id: item.get('_id')
                         };
     
-                        if(item.data.users !== undefined) {                        
-                            node.children = [];
-                            Ext.each(item.data.users, function (user) { //#4
-                                node.children.push({
-                                    user: true,
-                                    leaf: true, //#12
-                                    text: Ext.String.format("{0} {1}", user.first_name, user.last_name),
-                                    _id : user._id,
-                                    id: user._id,
-                                    username  : user.username,
-                                    first_name : user.first_name,
-                                    last_name : user.last_name,
-                                    email : user.email,
-                                    timezone : user.timezone,
-                                    profile : user.profile,
-                                    culture : user.culture,
-                                    group : user.group,
+                        // if(item.data.users !== undefined) {                        
+                        //     node.children = [];
+                        //     Ext.each(item.data.users, function (user) { //#4
+                        //         node.children.push({
+                        //             user: true,
+                        //             leaf: true, //#12
+                        //             text: Ext.String.format("{0} {1}", user.first_name, user.last_name),
+                        //             id: user._id,
+                        //             username  : user.username,
+                        //             first_name : user.first_name,
+                        //             last_name : user.last_name,
+                        //             email : user.email,
+                        //             timezone : user.timezone,
+                        //             profile : user.profile,
+                        //             culture : user.culture,
+                        //             group : user.group,
     
-                                    glyph: QT.util.Glyphs.getGlyph('user')
-                                });
-                            });
-                        }
+                        //             glyph: QT.util.Glyphs.getGlyph('user')
+                        //         });
+                        //     });
+                        // }
                         tree.getRootNode().appendChild(node); //#14
                     });
                 });

@@ -1,6 +1,8 @@
 {
     "app": {
         "title": "Map",
+        "super": "Super",
+        "owner": "Owner",
         "backoffice": "Backoffice",
         "profile": "Profile",
         "profiles": "Profiles",

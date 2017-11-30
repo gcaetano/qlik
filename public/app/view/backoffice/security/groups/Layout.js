@@ -6,7 +6,7 @@ Ext.define('QT.view.backoffice.security.groups.Layout',{
         'QT.view.backoffice.security.groups.tree.Tree',
         'QT.view.backoffice.security.groups.profiles.Profiles'
     ],
-    width: 350,     
+    width: 350,
     region: 'west',
     items: [
         {
@@ -20,7 +20,17 @@ Ext.define('QT.view.backoffice.security.groups.Layout',{
             // }
         },
         {
-            xtype: 'backoffice-security-groups-profiles'      
+            xtype: 'backoffice-security-groups-profiles'
+            // tabConfig: {
+            //     listeners: {
+            //         click: function() {
+            //             // var me = this;
+            //             // debugger;
+            //             // var grid = me.lookupReference('grid-profiles');
+            //             // console.log(grid);
+            //         }
+            //     }
+            // }
         }
     ]
 });

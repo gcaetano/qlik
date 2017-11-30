@@ -2,6 +2,7 @@ Ext.define('QT.view.main.MainController', {
     extend: 'Ext.app.ViewController',
     requires: [
         'QT.util.Util',
+        'QT.util.TreeGroup',
         'QT.util.Globals'
     ],
 
@@ -69,8 +70,9 @@ Ext.define('QT.view.main.MainController', {
 
     onBackOfficeClick : function(button, e, options){
         button.up("panel").layout.setActiveItem(1);
-
-        // load tree groups here!
+        debugger;
+        var tree = Ext.ComponentQuery.query('backoffice-security-groups-tree')[0];
+        QT.util.TreeGroup.load(tree);
     }
 });
 
