@@ -4,12 +4,20 @@ Ext.define('QT.view.backoffice.Layout',{
     alias: 'widget.backoffice-layout',
     
     requires: [
-        'QT.view.backoffice.security.Layout'
+        'QT.view.backoffice.security.Layout',
+        'QT.util.TreeGroup'
     ],
 
     items: [
         {
-            xtype: 'backoffice-security-layout'
+            xtype: 'backoffice-security-layout' //,
+            // tabConfig: {
+            //     listeners: {
+            //         click: function() {
+            //             alert('Clicked!')
+            //         }
+            //     }
+            // }
         },
         {
             xtype: 'panel',

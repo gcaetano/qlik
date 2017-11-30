@@ -69,7 +69,8 @@ Ext.define('QT.view.main.MainController', {
 
     onBackOfficeClick : function(button, e, options){
         button.up("panel").layout.setActiveItem(1);
-    }
 
+        // load tree groups here!
+    }
 });
 

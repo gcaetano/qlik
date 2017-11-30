@@ -10,7 +10,14 @@ Ext.define('QT.view.backoffice.security.groups.Layout',{
     region: 'west',
     items: [
         {
-            xtype: 'backoffice-security-groups-tree'
+            xtype: 'backoffice-security-groups-tree' //,
+            // tabConfig: {
+            //     listeners: {
+            //         click: function() {
+            //             alert('Clicked!')
+            //         }
+            //     }
+            // }
         },
         {
             xtype: 'backoffice-security-groups-profiles'      

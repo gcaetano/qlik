@@ -53,7 +53,7 @@
      */
     
     // "theme": "theme-triton",
-    "theme": "theme-classic",
+    "theme": "theme-gray",
     
     /**
      * The list of required packages (with optional versions; default is "latest").
