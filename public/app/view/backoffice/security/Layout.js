@@ -5,7 +5,7 @@ Ext.define('QT.view.backoffice.security.Layout',{
     
     requires: [
         'QT.view.backoffice.security.groups.Layout',
-        'QT.view.backoffice.security.panel.Layout',
+        'QT.view.backoffice.security.permissions.Layout',
         'QT.util.Glyphs'
     ],
 
@@ -21,10 +21,10 @@ Ext.define('QT.view.backoffice.security.Layout',{
             // xtype: 'panel'
         },
         {            
-            // xtype: 'backoffice-security-panel-layout'
-            xtype: 'panel',
-            region: 'center',
-            html: 'Permissions'
+            xtype: 'backoffice-security-permissions-layout'
+            // xtype: 'panel',
+            // region: 'center',
+            // html: 'Permissions'
         }
     ]
 });

@@ -1,7 +1,7 @@
 
-Ext.define('QT.view.backoffice.security.panel.Layout',{
+Ext.define('QT.view.backoffice.security.permissions.Layout',{
     extend: 'Ext.tab.Panel',
-    alias: 'widget.backoffice-security-panel-layout',
+    alias: 'widget.backoffice-security-permissions-layout',
 
     requires: [
 
