@@ -6,6 +6,7 @@ Ext.define('QT.view.backoffice.security.groups.Layout',{
         'QT.view.backoffice.security.groups.tree.Tree',
         'QT.view.backoffice.security.groups.profiles.Profiles'
     ],
+    controller: 'backoffice-security-groups-menu',
     width: 350,
     region: 'west',
     items: [
@@ -31,6 +32,33 @@ Ext.define('QT.view.backoffice.security.groups.Layout',{
             //         }
             //     }
             // }
+        }
+    ],
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'bottom',
+            items: [
+                {
+                    xtype: 'button',
+                    itemId: 'refreshGroups',
+                    reference: 'refreshGroups',
+                    glyph: QT.util.Glyphs.getGlyph('refresh'),
+                    listeners: {
+                        click: 'onRefreshGroups'
+                    }
+                },
+                '->',
+                {
+                    xtype: 'button',
+                    itemId: 'addGroup',
+                    reference: 'addGroup',
+                    glyph: QT.util.Glyphs.getGlyph('plus'),
+                    listeners: {
+                        click: 'onAddGroup'
+                    }
+                }
+            ]
         }
     ]
 });

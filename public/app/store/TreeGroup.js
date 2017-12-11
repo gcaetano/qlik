@@ -1,5 +1,5 @@
 Ext.define('QT.store.TreeGroups', {
-    extend: 'Ext.data.TreeStore',
+    extend: 'Ext.data.Store',
     requires: [
         'QT.util.Util'
     ],
@@ -17,7 +17,7 @@ Ext.define('QT.store.TreeGroups', {
     proxy: {
         type: 'ajax',
         api: {
-            read: '/groups'
+            read: '/groups/root'
         },
         reader: {
             type: 'json',

@@ -4,7 +4,8 @@ Ext.define('QT.view.backoffice.security.groups.tree.Tree',{
     alias: 'widget.backoffice-security-groups-tree',
     requires: [
         'QT.view.backoffice.security.groups.tree.TreeController',
-        'QT.view.backoffice.security.groups.tree.TreeModel' 
+        'QT.view.backoffice.security.groups.tree.TreeModel',
+        'QT.view.backoffice.security.groups.menu.Menu'
     ],
     title: $.t('app.groups'),
     controller: 'backoffice-security-groups-tree',
@@ -12,6 +13,9 @@ Ext.define('QT.view.backoffice.security.groups.tree.Tree',{
         type: 'backoffice-security-groups-tree'
     },
     rootVisible: false,
-    border: false,
+    border: 0,
     autoScroll: true,
+    listeners : {
+        itemcontextmenu: 'showContextMenu'
+    }
 });

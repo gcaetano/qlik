@@ -4,17 +4,14 @@ Ext.define('QT.util.TreeGroup', {
             var store = Ext.create('QT.store.TreeGroups');
             if (store !== undefined) {
                 store.load(function (records, op, success) { //#3                    
-                    Ext.each(records, function (item) { //#4
-                        debugger;
+                    Ext.each(records, function (item) { //#4    
                         var node = { 
                             user: false,
                             text: item.get('alias'),
-                            alias: item.get('alias'),
-                            // leaf: item.get('users').length === 0,
                             glyph: QT.util.Glyphs.getGlyph('group'),
+                            _id: item.get('_id'),
                             id: item.get('_id')
                         };
-    
                         // if(item.data.users !== undefined) {                        
                         //     node.children = [];
                         //     Ext.each(item.data.users, function (user) { //#4
@@ -59,7 +56,6 @@ Ext.define('QT.util.TreeGroup', {
             while (root.firstChild) {
                 root.removeChild(root.firstChild);
             }
-
             QT.util.TreeGroup.load(tree);
         }
     }

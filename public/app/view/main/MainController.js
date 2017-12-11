@@ -70,9 +70,9 @@ Ext.define('QT.view.main.MainController', {
 
     onBackOfficeClick : function(button, e, options){
         button.up("panel").layout.setActiveItem(1);
-        debugger;
         var tree = Ext.ComponentQuery.query('backoffice-security-groups-tree')[0];
-        QT.util.TreeGroup.load(tree);
+        QT.view.backoffice.security.groups.tree.TreeController.load(tree);
+        //QT.util.TreeGroup.load(tree);
     }
 });
 
